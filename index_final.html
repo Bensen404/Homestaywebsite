@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anavrin Homestay</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for Jost -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Jost', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            padding-top: 70px; /* Add padding to body to account for fixed header */
+        }
+            /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px white;
+        border-radius: 1px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #f14a28;
+        border-radius: 15px;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            position: fixed; /* Fix the header at the top */
+            top: 0;
+            width: 98%;
+            z-index: 1000; /* Ensure it stays above other content */
+            border-bottom-left-radius: 20px 20px;
+            border-bottom-right-radius: 20px 20px;
+            
+        }
+
+        header .logo h1 {
+            margin: 0;
+        }
+        .contact-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        background: #f0f8e7;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-box {
+            background: #f6f9f3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-box img {
+            width: 40px;
+            margin-bottom: 10px;
+        }
+
+        .contact-box h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: #333;
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6f61; /* Vibrant orange on hover */
+        }
+
+        .hero {
+            background-image: url('Home-Stay-House.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            height: 110vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+        }
+
+        .btn {
+            background-color: #f44c2c;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 30px;
+
+        }
+
+         .booking,.gallery, .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #ecfafb;
+            font-size: 20px;
+        }
+        .about{
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #def4d0;
+            font-size: 20px;
+            border-bottom-left-radius: 20px 20px;
+            border-bottom-right-radius: 20px 20px;
+        }
+        .other-services{
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #ecfafb;
+        }
+
+        .booking-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .booking-form input, .booking-form select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .booking-form button {
+            background-color: #f44c2c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .other-services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            width:90px;
+            text-align: center;
+        }
+
+        .service img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .service h3 {
+            margin: 150px 0;
+        }
+
+        .gallery-images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .gallery-images img {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-overlay.active {
+            display: block;
+        }
+
+        /* Google Maps Styles */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Anavrin Homestay</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#other-services">Other Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Anavrin Homestay</h2>
+            <p>Experience the beauty of nature with us.</p>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>
+            Experience the serene beauty of Kuttanadu with ANAVRIN Home Stay, nestled amidst picturesque backwaters and lush paddy fields. 
+            Immerse yourself in authentic Kerala hospitality, savor traditional cuisine, and unwind with tranquil boat rides. 
+            Discover the essence of local culture in a peaceful and rejuvenating retreat..</p>
+    </section>
+
+    <section id="booking" class="booking">
+        <h2>Book Your Stay</h2>
+        <div class="booking-form">
+            <input type="date" id="checkin" placeholder="Check-in Date">
+            <input type="date" id="checkout" placeholder="Check-out Date">
+            <select id="adults">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+            </select>
+            <select id="children">
+                <option value="0">0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+            </select>
+            <button onclick="checkAvailability()">Check Availability</button>
+        </div>
+        <p id="availability-message"></p>
+    </section>
+
+    <section id="other-services" class="other-services">
+        <h2>Other Services</h2>
+        <div class="service">
+            <img src="hb.png" alt="Service 1">
+            <p>Kuttanad Cruise</p>
+        </div>
+        <div class="service">
+            <img src="20.png" alt="Service 2">
+            <p>Backwater Canoeing</p>
+        </div>
+        <div class="service">
+            <img src="sn.png" alt="Service 3">
+            <p>Snake Boat Race</p>
+        </div>
+        <div class="service">
+            <img src="ter.png" alt="Service 4">
+            <p>House Boat Terminal</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        
+        <div class="contact-container">
+            <div class="contact-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/684/684809.png" alt="Location">
+                <h3><b>Anavrin Homestay</b></h3>
+                <p>Kuttanadu, Kerala</p>
+            </div>
+            <div class="contact-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="Phone">
+                <p>+91-8848068665</p>
+
+            </div>
+            <div class="contact-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/732/732200.png" alt="Email">
+                <p>jovarghese1973@gmail.com</p>
+            </div>
+            <div class="contact-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="WhatsApp">
+                <p>+974-55348367</p>
+            </div>
+        </div>
+    
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1007433.9777730692!2d76.384722!3d9.483575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08831692933173%3A0x7c787a488e25f341!2sAnavrin%20home%20stay%20kainakary!5e0!3m2!1sen!2sus!4v1738497921029!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Anavrin Homestay. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup for Booking -->
+    <div class="popup-overlay"></div>
+    <div class="popup">
+        <h2>Book Your Stay</h2>
+        <div class="booking-form">
+            <input type="date" id="popup-checkin" placeholder="Check-in Date">
+            <input type="date" id="popup-checkout" placeholder="Check-out Date">
+            <select id="popup-adults">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+            </select>
+            <select id="popup-children">
+                <option value="0">0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+            </select>
+            <button onclick="checkAvailability()">Check Availability</button>
+        </div>
+        <p id="popup-availability-message"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Mock Availability Check
+        function checkAvailability() {
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const adults = document.getElementById('adults').value;
+            const children = document.getElementById('children').value;
+
+            // Mock logic for availability
+            const isAvailable = Math.random() > 0.5;
+            const message = isAvailable ? "Your selected dates are available!" : "Sorry, the homestay is not available on these dates.";
+            document.getElementById('availability-message').textContent = message;
+            document.getElementById('popup-availability-message').textContent = message;
+        }
+
+        // Popup Logic
+        const bookNowLinks = document.querySelectorAll('a[href="#booking"]');
+        const popup = document.querySelector('.popup');
+        const overlay = document.querySelector('.popup-overlay');
+
+        bookNowLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                popup.classList.add('active');
+                overlay.classList.add('active');
+            });
+        });
+
+        function closePopup() {
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        overlay.addEventListener('click', closePopup);
+    </script>
+</body>
+</html>
