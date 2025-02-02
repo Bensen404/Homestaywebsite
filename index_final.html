@@ -116,14 +116,17 @@
 
         .hero {
             background-image: url('Home-Stay-House.jpg'); /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-            height: 110vh;
+            background-size: cover; /* Ensures full coverage */
+            background-position: center center; /* Keeps image centered */
+            background-repeat: no-repeat;
+            height: 100vh; /* Full screen height */
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #fff;
+            position: relative;
         }
 
         .hero-content h2 {
