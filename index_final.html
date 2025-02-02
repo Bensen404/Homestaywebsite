@@ -12,292 +12,155 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
-        body {
-            font-family: 'Jost', Arial, sans-serif;
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            padding-top: 70px; /* Add padding to body to account for fixed header */
         }
-            /* width */
+        
+        body {
+            font-family: 'Jost', Arial, sans-serif;
+            padding-top: 70px; /* To prevent header overlap */
+        }
+        
+        /* Scrollbar */
         ::-webkit-scrollbar {
-        width: 5px;
+            width: 5px;
         }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 2px white;
-        border-radius: 1px;
-        }
-
-        /* Handle */
+        
         ::-webkit-scrollbar-thumb {
-        background: #f14a28;
-        border-radius: 15px;
+            background: #f14a28;
+            border-radius: 15px;
         }
-
+        
+        /* Header */
         header {
             background-color: #ffffff;
             color: #000000;
-            padding: 10px 20px;
+            padding: 10px 5%;
             display: flex;
-            justify-content:space-evenly;
+            justify-content: space-between;
             align-items: center;
-            position: fixed; /* Fix the header at the top */
+            position: fixed;
             top: 0;
-            width: 98%;
-            z-index: 1000; /* Ensure it stays above other content */
-            border-bottom-left-radius: 20px 20px;
-            border-bottom-right-radius: 20px 20px;
-            
+            width: 100%;
+            z-index: 1000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
-
+        
         header .logo h1 {
-            margin: 0;
+            font-size: 1.5rem;
+            white-space: nowrap; /* Prevents text wrapping */
         }
-        .contact-container {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-        background: #f0f8e7;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-box {
-            background: #f6f9f3;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 200px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-box img {
-            width: 40px;
-            margin-bottom: 10px;
-        }
-
-        .contact-box h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .contact-box p {
-            font-size: 14px;
-            color: #333;
-            margin: 0;
-        }
+        
         nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            gap: 20px;
         }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
+        
         nav ul li a {
-            color: #000000;
             text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            color: #000;
         }
-
-        nav ul li a:hover {
-            color: #ff6f61; /* Vibrant orange on hover */
-        }
-
+        
+        /* Hero Section */
         .hero {
-            background-image: url('Home-Stay-House.jpg'); /* Replace with your image */
-            background-size: cover; /* Ensures full coverage */
-            background-position: center center; /* Keeps image centered */
+            background-image: url('Home-Stay-House.jpg'); /* Adjust image path */
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            height: 100vh; /* Full screen height */
+            height: 100vh;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #fff;
-            position: relative;
         }
-
+        
+        .hero-content {
+            max-width: 90%; /* Makes text fit on smaller screens */
+        }
+        
         .hero-content h2 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 2.5rem;
         }
-
+        
         .hero-content p {
-            font-size: 1.5em;
+            font-size: 1.2rem;
         }
-
-        .btn {
-            background-color: #f44c2c;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 30px;
-
-        }
-
-         .booking,.gallery, .contact {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #ecfafb;
-            font-size: 20px;
-        }
-        .about{
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #def4d0;
-            font-size: 20px;
-            border-bottom-left-radius: 20px 20px;
-            border-bottom-right-radius: 20px 20px;
-        }
-        .other-services{
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #ecfafb;
-        }
-
+        
+        /* Booking Form */
         .booking-form {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap; /* Ensures proper layout on mobile */
             gap: 10px;
-            flex-wrap: wrap;
+            justify-content: center;
         }
-
-        .booking-form input, .booking-form select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
+        
+        .booking-form input,
+        .booking-form select,
         .booking-form button {
-            background-color: #f44c2c;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
+            padding: 10px;
+            width: 100%;
+            max-width: 250px;
             border-radius: 5px;
-            cursor: pointer;
         }
-
+        
+        /* Other Services */
         .other-services {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
-
+        
         .service {
-            width:90px;
+            width: 100%;
+            max-width: 300px;
             text-align: center;
         }
-
+        
         .service img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .service h3 {
-            margin: 150px 0;
-        }
-
-        .gallery-images {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .gallery-images img {
-            width: 30%;
-            margin-bottom: 20px;
+            width: 100%;
+            height: auto;
             border-radius: 10px;
         }
-
-        form {
+        
+        /* Gallery */
+        .gallery-images {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
-
-        form input, form textarea {
-            width: 80%;
+        
+        .gallery-images img {
+            width: 100%;
+            max-width: 30%;
+            border-radius: 10px;
+        }
+        
+        /* Contact Form */
+        form input,
+        form textarea {
+            width: 100%;
+            max-width: 600px;
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
-
-        form button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
+        
+        /* Footer */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 5px;
+            padding: 10px;
         }
 
-        /* Popup Styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-        }
-
-        .popup.active {
-            display: block;
-        }
-
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .popup-overlay.active {
-            display: block;
-        }
-
-        /* Google Maps Styles */
-        .map-container {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
     </style>
 </head>
 <body>
